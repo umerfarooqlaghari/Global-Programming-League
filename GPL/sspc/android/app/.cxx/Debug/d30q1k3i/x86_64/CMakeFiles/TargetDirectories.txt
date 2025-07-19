@@ -1,0 +1,2 @@
+C:/Users/DELL/Desktop/fyp 2/sspc sammad (1)/Testing (3)/Updated everything sspc/Testing/sspc/android/app/.cxx/Debug/d30q1k3i/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/DELL/Desktop/fyp 2/sspc sammad (1)/Testing (3)/Updated everything sspc/Testing/sspc/android/app/.cxx/Debug/d30q1k3i/x86_64/CMakeFiles/rebuild_cache.dir
