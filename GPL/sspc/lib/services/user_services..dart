@@ -41,11 +41,6 @@ class UserService {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? userId = prefs.getString('userId');
 
-      if (userId == null) {
-        print('No user ID found in SharedPreferences');
-        return false;
-      }
-
       print('Updating user with ID: $userId');
       print('About Me content: $aboutMe');
 
@@ -53,7 +48,7 @@ class UserService {
         Uri.parse('http://localhost:5500/api/users/updateuser'),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': userId, // Send user ID in Authorization header
+          'Authorization': userId ?? '', // Send user ID in Authorization header
         },
         body: jsonEncode({
           'aboutMe': aboutMe,
@@ -99,11 +94,6 @@ class UserService {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? userId = prefs.getString('userId');
 
-      if (userId == null) {
-        print('No user ID found in SharedPreferences');
-        return false;
-      }
-
       print('Uploading profile picture for user ID: $userId');
       print('Image file path: ${imageFile.path}');
 
@@ -114,10 +104,10 @@ class UserService {
       );
 
       // Add headers
-      request.headers['Authorization'] = userId;
+      request.headers['Authorization'] = userId ?? '';
 
       // Add user ID to the request
-      request.fields['userId'] = userId;
+      request.fields['userId'] = userId ?? '';
 
       // Handle file upload differently for web and mobile
       if (kIsWeb) {
@@ -182,18 +172,13 @@ class UserService {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? userId = prefs.getString('userId');
 
-      if (userId == null) {
-        print('No user ID found in SharedPreferences');
-        return false;
-      }
-
       print('Removing profile picture for user ID: $userId');
 
       final response = await http.put(
         Uri.parse('http://localhost:5500/api/users/remove-profile-picture'),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': userId,
+          'Authorization': userId ?? '',
         },
         body: jsonEncode({
           'userId': userId,

@@ -23,12 +23,10 @@ class _PostCompetitionsScreenState extends State<PostCompetitionsScreen> {
       lastDate: DateTime(2100),
     );
 
-    if (pickedDate != null) {
-      setState(() {
-        _selectedDate = pickedDate;
-      });
+    setState(() {
+      _selectedDate = pickedDate;
+    });
     }
-  }
 
   void _submitForm() async {
     if (_formKey.currentState!.validate()) {
