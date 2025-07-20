@@ -63,6 +63,11 @@ coverage/
 .env
 .env.*
 
+# Firebase service account credentials
+firebase-service-account.json
+firebase-service-account.json.json
+*service-account*.json
+
 # IDE/editor settings
 .vscode/
 .idea/
