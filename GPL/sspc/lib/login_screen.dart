@@ -58,14 +58,24 @@ Future<void> _login() async {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isLargeScreen = screenWidth > 800;
+
     return Scaffold(
       backgroundColor: Colors.white, // White background
       body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Form(
-            key: _formKey,
-            child: Column(
+        child: Container(
+          constraints: BoxConstraints(
+            maxWidth: isLargeScreen ? 400 : double.infinity, // Constrain width on large screens
+          ),
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(
+              horizontal: isLargeScreen ? 32 : 24,
+              vertical: 16,
+            ),
+            child: Form(
+              key: _formKey,
+              child: Column(
               children: [
                 const SizedBox(height: 60),
                 
@@ -73,7 +83,7 @@ Future<void> _login() async {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12), // Rounded edges
                   child: Image.asset(
-                    'assets/images/logo.png',
+                    'assets/images/logo.jpg',
                     height: 80,
                     errorBuilder: (context, error, stackTrace) {
                       return const Icon(Icons.image, size: 60, color: Colors.blue);
@@ -176,6 +186,7 @@ Future<void> _login() async {
           ),
         ),
       ),
+      )
     );
   }
 }

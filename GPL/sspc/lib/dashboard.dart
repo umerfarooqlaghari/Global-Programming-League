@@ -41,8 +41,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xFF88CDF6),
-                Color(0xFF5FB0E8),
+                Color(0xFF1A237E),
+                Color(0xFF283593),
               ],
             ),
           ),
@@ -55,8 +55,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Color(0xFF88CDF6),
-                      Color(0xFF5FB0E8),
+                      Color(0xFF1A237E),
+                      Color(0xFF283593),
                     ],
                   ),
                 ),
@@ -197,7 +197,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF88CDF6),
+        backgroundColor: const Color(0xFF1A237E),
         title: const Text(
           'Dashboard',
           style: TextStyle(
@@ -231,11 +231,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [Color(0xFF88CDF6), Color(0xFF5FB0E8)],
+                colors: [Color(0xFF1A237E), Color(0xFF283593)],
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Color(0xFF88CDF6),
+                  color: Color(0xFF1A237E),
                   blurRadius: 12,
                   offset: Offset(0, 4),
                 ),
@@ -288,10 +288,34 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
           // Feature List
           Expanded(
-            child: ListView(
-              padding: EdgeInsets.symmetric(
-                  vertical: isSmallScreen ? 10 : 18, horizontal: isSmallScreen ? 8 : 32),
-              children: [
+            child: Center(
+              child: Container(
+                constraints: BoxConstraints(
+                  maxWidth: isSmallScreen ? double.infinity : 800, // Constrain width on large screens
+                ),
+                child: isSmallScreen
+                  ? ListView(
+                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                      children: _buildFeatureList(context, isSmallScreen),
+                    )
+                  : GridView.count(
+                      crossAxisCount: 2,
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 32),
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 16,
+                      childAspectRatio: 3.5,
+                      children: _buildFeatureList(context, isSmallScreen),
+                    ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _buildFeatureList(BuildContext context, bool isSmallScreen) {
+    return [
                 _featureTile(
                   context,
                   icon: Icons.group,
@@ -341,12 +365,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   subtitle: 'View your activity overview.',
                   onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => UpcomingCompetitionsScreen())),
                 ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
+    ];
   }
 
   // Feature ListTile Widget
@@ -366,12 +385,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
             gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Color(0xFF88CDF6), Color(0xFF5FB0E8)],
+              colors: [Color(0xFF1A237E), Color(0xFF283593)],
             ),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF88CDF6).withOpacity(0.18),
+                color: const Color(0xFF1A237E).withOpacity(0.18),
                 blurRadius: 8,
                 offset: const Offset(0, 2),
               ),
@@ -395,13 +414,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
             color: Colors.grey[700],
           ),
         ),
-        trailing: Icon(Icons.arrow_forward_ios, color: const Color(0xFF88CDF6), size: isSmallScreen ? 16 : 20),
+        trailing: Icon(Icons.arrow_forward_ios, color: const Color(0xFF1A237E), size: isSmallScreen ? 16 : 20),
         onTap: onTap,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(isSmallScreen ? 16 : 22),
         ),
         tileColor: Colors.white,
-        hoverColor: const Color(0xFF88CDF6).withOpacity(0.07),
+        hoverColor: const Color(0xFF1A237E).withOpacity(0.07),
       ),
     );
   }

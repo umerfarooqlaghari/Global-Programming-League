@@ -88,10 +88,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SSPC',
+      title: 'Global Programming League',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
+        primaryColor: const Color(0xFF1A237E), // Dark navy blue
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: LoginScreen(),

@@ -1,5 +1,5 @@
 name: sspc
-description: "A new Flutter project."
+description: "Global Programming League - A competitive programming platform."
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -40,6 +40,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/logo.png
+    - assets/images/logo.jpg
     - assets/images/Anas.jpg
 

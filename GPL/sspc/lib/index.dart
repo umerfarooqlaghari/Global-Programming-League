@@ -9,13 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SSPC Community',
+      title: 'Global Programming League',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
-        primaryColor: const Color(0xFF88CDF6),
+        primaryColor: const Color(0xFF1A237E), // Dark navy blue
         scaffoldBackgroundColor: const Color(0xFFF8FAFC),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF88CDF6),
+          backgroundColor: Color(0xFF1A237E), // Dark navy blue
           elevation: 0,
           iconTheme: IconThemeData(color: Colors.white),
           titleTextStyle: TextStyle(
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Color(0xFF88CDF6), Color(0xFF5FB0E8)],
+              colors: [Color(0xFF1A237E), Color(0xFF283593)], // Dark navy blue gradient
             ),
           ),
         ),
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     const Padding(
                       padding: EdgeInsets.only(left: 16),
-                      child: Icon(Icons.search, color: Color(0xFF88CDF6)),
+                      child: Icon(Icons.search, color: Color(0xFF1A237E)),
                     ),
                     Expanded(
                       child: TextField(
@@ -231,7 +231,7 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           _currentUser!['username'][0].toUpperCase(),
                           style: const TextStyle(
-                            color: Color(0xFF88CDF6),
+                            color: Color(0xFF1A237E),
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
                           ),
@@ -261,8 +261,13 @@ class _HomePageState extends State<HomePage> {
             colors: [Color(0xFFF8FAFC), Color(0xFFE2E8F0)],
           ),
         ),
-        child: ListView(
-          children: [
+        child: Center(
+          child: Container(
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.of(context).size.width > 1200 ? 800 : double.infinity,
+            ),
+            child: ListView(
+              children: [
             // Beautiful Post Creation Card
             Container(
               margin: const EdgeInsets.all(16),
@@ -291,12 +296,12 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           decoration: BoxDecoration(
                             gradient: const LinearGradient(
-                              colors: [Color(0xFF88CDF6), Color(0xFF5FB0E8)],
+                              colors: [Color(0xFF1A237E), Color(0xFF283593)],
                             ),
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
-                                color: const Color(0xFF88CDF6).withOpacity(0.3),
+                                color: const Color(0xFF1A237E).withOpacity(0.3),
                                 blurRadius: 8,
                                 offset: const Offset(0, 4),
                               ),
@@ -374,12 +379,12 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           decoration: BoxDecoration(
                             gradient: const LinearGradient(
-                              colors: [Color(0xFF88CDF6), Color(0xFF5FB0E8)],
+                              colors: [Color(0xFF1A237E), Color(0xFF283593)],
                             ),
                             borderRadius: BorderRadius.circular(25),
                             boxShadow: [
                               BoxShadow(
-                                color: const Color(0xFF88CDF6).withOpacity(0.3),
+                                color: const Color(0xFF1A237E).withOpacity(0.3),
                                 blurRadius: 8,
                                 offset: const Offset(0, 4),
                               ),
@@ -450,7 +455,7 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
-                          colors: [Color(0xFF88CDF6), Color(0xFF5FB0E8)],
+                          colors: [Color(0xFF1A237E), Color(0xFF283593)],
                         ),
                         borderRadius: BorderRadius.circular(50),
                       ),
@@ -462,7 +467,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(height: 24),
                     const Text(
-                      'Welcome to SSPC Community!',
+                      'Welcome to Global Programming League!',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -484,12 +489,12 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
-                          colors: [Color(0xFF88CDF6), Color(0xFF5FB0E8)],
+                          colors: [Color(0xFF1A237E), Color(0xFF283593)],
                         ),
                         borderRadius: BorderRadius.circular(25),
                         boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFF88CDF6).withOpacity(0.3),
+                            color: const Color(0xFF1A237E).withOpacity(0.3),
                             blurRadius: 8,
                             offset: const Offset(0, 4),
                           ),
@@ -525,17 +530,19 @@ class _HomePageState extends State<HomePage> {
             else
               ..._posts.map((post) => _buildPostCard(post)),
           ],
+            ),
+          ),
         ),
       ),
       floatingActionButton: Container(
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Color(0xFF88CDF6), Color(0xFF5FB0E8)],
+            colors: [Color(0xFF1A237E), Color(0xFF283593)],
           ),
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF88CDF6).withOpacity(0.4),
+              color: const Color(0xFF1A237E).withOpacity(0.4),
               blurRadius: 15,
               offset: const Offset(0, 8),
             ),
@@ -636,12 +643,12 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                      colors: [Color(0xFF88CDF6), Color(0xFF5FB0E8)],
+                      colors: [Color(0xFF1A237E), Color(0xFF283593)],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: const Color(0xFF88CDF6).withOpacity(0.3),
+                        color: const Color(0xFF1A237E).withOpacity(0.3),
                         blurRadius: 8,
                         offset: const Offset(0, 3),
                       ),
@@ -689,13 +696,13 @@ class _HomePageState extends State<HomePage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF88CDF6).withOpacity(0.1),
+                    color: const Color(0xFF1A237E).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Text(
                     'Post',
                     style: TextStyle(
-                      color: Color(0xFF88CDF6),
+                      color: Color(0xFF1A237E),
                       fontSize: 10,
                       fontWeight: FontWeight.w600,
                     ),
@@ -752,7 +759,7 @@ class _HomePageState extends State<HomePage> {
                     icon: Icons.chat_bubble_outline,
                     label: '${post['comments'].length}',
                     subLabel: 'Comments',
-                    color: const Color(0xFF88CDF6),
+                    color: const Color(0xFF1A237E),
                     onTap: () {
                       showModalBottomSheet(
                         context: context,

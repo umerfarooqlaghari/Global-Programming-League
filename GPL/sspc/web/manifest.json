@@ -1,11 +1,11 @@
 {
-    "name": "sspc",
-    "short_name": "sspc",
+    "name": "Global Programming League",
+    "short_name": "GPL",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#1A237E",
+    "theme_color": "#1A237E",
+    "description": "Global Programming League - A competitive programming platform.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
